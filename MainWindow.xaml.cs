@@ -1,24 +1,24 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
-namespace PokeBattle_Hamed
+namespace PokemonLike
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        // Gestionnaire d'événement pour le bouton "Sign Up"
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité Sign Up à implémenter.");
+        }
+
+        // Gestionnaire d'événement pour le bouton "Login"
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité Login à implémenter.");
         }
     }
 }

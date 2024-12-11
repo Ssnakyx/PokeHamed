@@ -6,7 +6,6 @@ C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\bin\Debug\net8.0-w
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed_MarkupCompile.cache
-C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed_MarkupCompile.lref
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed.g.resources
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed.GeneratedMSBuildEditorConfig.editorconfig
@@ -145,3 +144,4 @@ C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\bin\Debug\net8.0-w
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed.csproj.AssemblyReference.cache
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBatt.9A09A54E.Up2Date
+C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed.sourcelink.json
