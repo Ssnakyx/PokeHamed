@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using PokemonLike.View;  // Importer le namespace des fenêtres SignUp et Login
 
 namespace PokemonLike
 {
@@ -9,16 +10,18 @@ namespace PokemonLike
             InitializeComponent();
         }
 
-        // Gestionnaire d'événement pour le bouton "Sign Up"
+        // Ouvrir la fenêtre SignUp
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Fonctionnalité Sign Up à implémenter.");
+            SignUpWindow signUpWindow = new SignUpWindow();
+            signUpWindow.Show();  // Affiche la fenêtre SignUp
         }
 
-        // Gestionnaire d'événement pour le bouton "Login"
+        // Ouvrir la fenêtre Login
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Fonctionnalité Login à implémenter.");
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();  // Affiche la fenêtre Login
         }
     }
 }
