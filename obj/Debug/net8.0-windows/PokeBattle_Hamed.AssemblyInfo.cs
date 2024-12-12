@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokeBattle_Hamed")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ff3c20f85cf35e359162465559557310dae705f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea8edc63962e2c1728a98ce762e596f31a0bef54")]
 [assembly: System.Reflection.AssemblyProductAttribute("PokeBattle_Hamed")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokeBattle_Hamed")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

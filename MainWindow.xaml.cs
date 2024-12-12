@@ -1,10 +1,10 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using Microsoft.EntityFrameworkCore;
+using PokeBattle_Hamed.Model;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -12,18 +12,32 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        // Gestionnaire pour le bouton "Sign Up"
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        private void ValidateConnectionButton_Click(object sender, RoutedEventArgs e)
         {
-            // Créer et afficher la nouvelle fenêtre
-            SecondaryWindow secondaryWindow = new SecondaryWindow();
-            secondaryWindow.Show();
-        }
+            string connectionString = DatabaseLinkTextBox.Text;
 
-        // Gestionnaire pour le bouton "Login" (à adapter si nécessaire)
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Login button clicked!");
+            // Vérification de la connexion à la base de données
+            try
+            {
+                var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+                optionsBuilder.UseSqlServer(connectionString);
+
+                using (var dbContext = new AppDbContext(optionsBuilder.Options))
+                {
+                    dbContext.Database.CanConnect(); // Essaie de se connecter à la base
+                    MessageBox.Show("Connexion réussie à la base de données !");
+
+                    // Logique pour ouvrir la fenêtre de connexion ou de création de compte
+                    // Ici, nous pouvons directement ouvrir la fenêtre LoginPage ou CreateAccountPage
+                    var loginPage = new LoginPage(connectionString);
+                    loginPage.Show();
+                    this.Close(); // Ferme la fenêtre principale après la connexion réussie
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur de connexion à la base de données : {ex.Message}");
+            }
         }
     }
 }
