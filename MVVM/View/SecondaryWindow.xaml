@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfApp1.SecondaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Secondary Window" Height="300" Width="400">
+    <Grid Background="LightGray">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+            <Button Content="Button 1" Width="150" Height="40" Margin="0,10" />
+            <Button Content="Button 2" Width="150" Height="40" Margin="0,10" />
+        </StackPanel>
+    </Grid>
+</Window>

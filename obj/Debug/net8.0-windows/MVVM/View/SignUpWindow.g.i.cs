@@ -100,7 +100,7 @@ namespace PokemonLike {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PokeBattle_Hamed;component/mvvm/view/signupwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PokeBattle_Hamed;V1.0.0.0;component/mvvm/view/signupwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\View\SignUpWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

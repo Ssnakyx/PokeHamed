@@ -9,8 +9,7 @@ namespace PokeBattle_Hamed.Data
         public DbSet<Player> Players { get; set; }
         public DbSet<Monster> Monsters { get; set; }
         public DbSet<Spell> Spells { get; set; }
-        public DbSet<PlayerMonster> PlayerMonsters { get; set; }
-        public DbSet<MonsterSpell> MonsterSpells { get; set; }
+ 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

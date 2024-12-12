@@ -145,7 +145,5 @@ C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\bin\Debug\net8.0-w
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed.csproj.AssemblyReference.cache
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBatt.9A09A54E.Up2Date
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\PokeBattle_Hamed.sourcelink.json
-C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MVVM\View\LoginWindow.baml
-C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MVVM\View\SignUpWindow.baml
-C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MVVM\View\LoginWindow.g.cs
-C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MVVM\View\SignUpWindow.g.cs
+C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MVVM\View\SecondaryWindow.baml
+C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\obj\Debug\net8.0-windows\MVVM\View\SecondaryWindow.g.cs

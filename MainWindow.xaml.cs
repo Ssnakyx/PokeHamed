@@ -1,8 +1,10 @@
 ﻿using System.Windows;
-using PokemonLike.View;  // Importer le namespace des fenêtres SignUp et Login
 
-namespace PokemonLike
+namespace WpfApp1
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -10,18 +12,18 @@ namespace PokemonLike
             InitializeComponent();
         }
 
-        // Ouvrir la fenêtre SignUp
+        // Gestionnaire pour le bouton "Sign Up"
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            SignUpWindow signUpWindow = new SignUpWindow();
-            signUpWindow.Show();  // Affiche la fenêtre SignUp
+            // Créer et afficher la nouvelle fenêtre
+            SecondaryWindow secondaryWindow = new SecondaryWindow();
+            secondaryWindow.Show();
         }
 
-        // Ouvrir la fenêtre Login
+        // Gestionnaire pour le bouton "Login" (à adapter si nécessaire)
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();  // Affiche la fenêtre Login
+            MessageBox.Show("Login button clicked!");
         }
     }
 }
