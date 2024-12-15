@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PokeBattle_Hamed.Model;
+namespace WpfApp1.MVVM.Model;
 
 public partial class Player
 {

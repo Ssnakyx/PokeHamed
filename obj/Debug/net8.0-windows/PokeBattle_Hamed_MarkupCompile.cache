@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\BOUYO\source\repos\PokeBattle_Hamed\PokeBattle_Hamed\App.xaml
-3-99991759
+9-547177702
 
-15802068306
-229-214543648
-MainWindow.xaml;MVVM\View\CreateAccountPage.xaml;MVVM\View\LoginPage.xaml;
+26-724429158
+230-1988779383
+MainWindow.xaml;MVVM\View\FightView.xaml;MVVM\View\GameView.xaml;MVVM\View\LoginView.xaml;MVVM\View\MainView.xaml;MVVM\View\MonstresView.xaml;MVVM\View\SignupView.xaml;MVVM\View\SpellsView.xaml;MVVM\View\UrlBddView.xaml;
 
 False
 

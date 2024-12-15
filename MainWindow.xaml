@@ -1,16 +1,29 @@
 ﻿<Window x:Class="WpfApp1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Connexion à la base de données" Height="400" Width="600">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:VM ="clr-namespace:WpfApp1.MVVM.ViewModel"
+        xmlns:View ="clr-namespace:WpfApp1.MVVM.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+<!--    <Grid>
+        Rectangle avec intérieur gris 
+        <Rectangle HorizontalAlignment="Center" Height="414" 
+                   Stroke="Black" VerticalAlignment="Center" Width="780" Fill="Gray"/>
+    </Grid> -->
+    <Window.Resources>
+        <!-- Link VM & View  -->
+        <DataTemplate DataType="{x:Type VM:MainViewVM}">
+            <View:MainWindow/>
+        </DataTemplate>
 
-    <Grid Background="White">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
-            <TextBlock Text="Entrez le lien de la base de données" FontSize="16" FontWeight="Bold" Margin="0,0,0,20" />
-
-            <!-- Remplacer PlaceholderText par Text pour un texte par défaut dans le TextBox -->
-            <TextBox x:Name="DatabaseLinkTextBox" Width="300" Height="30" Margin="0,10" Text="Lien de la base de données" />
-
-            <Button Content="Valider" Width="200" Height="40" Margin="0,20" Click="ValidateConnectionButton_Click" />
-        </StackPanel>
+        <!-- <DataTemplate DataType="{x:Type VM:GameVM}">
+            <View:GameView/>
+        </DataTemplate> -->
+    </Window.Resources>
+    <Grid>
+        <ContentControl Content="{Binding CurrentVM}"/>
     </Grid>
 </Window>

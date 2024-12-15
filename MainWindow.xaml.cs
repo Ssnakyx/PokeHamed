@@ -1,43 +1,34 @@
-﻿using System;
+﻿using System.Text;
 using System.Windows;
-using Microsoft.EntityFrameworkCore;
-using PokeBattle_Hamed.Model;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using WpfApp1.MVVM.ViewModel;
+
 
 namespace WpfApp1
 {
+ 
     public partial class MainWindow : Window
     {
+        public MainWindowVM mainWindowVM { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+
+            mainWindowVM = new MainWindowVM();
+
+            DataContext = mainWindowVM;
         }
 
-        private void ValidateConnectionButton_Click(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string connectionString = DatabaseLinkTextBox.Text;
 
-            // Vérification de la connexion à la base de données
-            try
-            {
-                var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                optionsBuilder.UseSqlServer(connectionString);
-
-                using (var dbContext = new AppDbContext(optionsBuilder.Options))
-                {
-                    dbContext.Database.CanConnect(); // Essaie de se connecter à la base
-                    MessageBox.Show("Connexion réussie à la base de données !");
-
-                    // Logique pour ouvrir la fenêtre de connexion ou de création de compte
-                    // Ici, nous pouvons directement ouvrir la fenêtre LoginPage ou CreateAccountPage
-                    var loginPage = new LoginPage(connectionString);
-                    loginPage.Show();
-                    this.Close(); // Ferme la fenêtre principale après la connexion réussie
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erreur de connexion à la base de données : {ex.Message}");
-            }
         }
     }
 }

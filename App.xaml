@@ -1,4 +1,4 @@
-﻿<Application x:Class="PokemonLike.App"
+﻿<Application x:Class="PokeBattle_Hamed.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
