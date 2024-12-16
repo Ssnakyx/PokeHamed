@@ -45,23 +45,15 @@ namespace WpfApp1.MVVM.ViewModel
             using var context = new ExerciceMonsterContext(_connectionString);
             try
             {
-                // Rechercher l'utilisateur par nom d'utilisateur
+                
                 var user = context.Login.FirstOrDefault(u => u.Username == username);
 
                 if (user == null)
                 {
                     MessageBox.Show($"Utilisateur non trouvé pour le nom d'utilisateur : {username}");
-                    return null; // Retourne null si l'utilisateur n'est pas trouvé
+                    return null; 
                 }
 
-                //// Vérifier le mot de passe hashé
-                //MessageBox.Show(user.PasswordHash);
-                //MessageBox.Show(hashedPassword);
-                //if (user.PasswordHash != hashedPassword)
-                //{
-                //    MessageBox.Show("Mot de passe incorrect.");
-                //    return null; // Retourne null si le mot de passe est incorrect
-                //}
                 bool isPasswordValid = PasswordHelper.VerifyPassword(password, user.PasswordHash);
 
                 if (!isPasswordValid)
@@ -69,7 +61,7 @@ namespace WpfApp1.MVVM.ViewModel
                     MessageBox.Show($"mot de passe incorrect, {user.Username} !");
                 }
 
-                // Retourner l'utilisateur si tout est valide
+            
 
                 return user;
                 
@@ -77,12 +69,12 @@ namespace WpfApp1.MVVM.ViewModel
             catch (SqlException sqlEx)
             {
                 MessageBox.Show($"Erreur SQL lors de la récupération de l'utilisateur : {sqlEx.Message}");
-                throw; // Ré-élévation pour gestion en amont
+                throw;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur inattendue : {ex.Message}");
-                throw; // Ré-élévation pour gestion en amont
+                throw;
             }
         }
     }

@@ -26,7 +26,7 @@ namespace WpfApp1.MVVM.View
             {
                 foreach (var tupleMonster in monsters)
                 {
-                    // Associer les sorts au monstre
+                 
                     var monsterSpells = spells
                         .Where(s => tupleMonster.Spells.Contains(s.Id))
                         .Select(s => new Spell
@@ -47,7 +47,7 @@ namespace WpfApp1.MVVM.View
                         Spell = monsterSpells
                     };
 
-                    // Créer un bouton pour le monstre
+                   
                     var button = new Button
                     {
                         Margin = new Thickness(5),
@@ -57,7 +57,7 @@ namespace WpfApp1.MVVM.View
                     {
                         if (sender is Button clickedButton && clickedButton.Tag is Monster selectedMonster)
                         {
-                            // Masquer tous les panels dans RightPanelSpells
+                          
                             foreach (var child in RightPanelSpells.Children)
                             {
                                 if (child is StackPanel panel)
@@ -66,7 +66,7 @@ namespace WpfApp1.MVVM.View
                                 }
                             }
 
-                            // Afficher uniquement le panel correspondant au monstre
+                        
                             var matchingPanel = RightPanelSpells.Children
                                 .OfType<StackPanel>()
                                 .FirstOrDefault(panel => panel.Tag is Monster m && m.Id == selectedMonster.Id);
@@ -78,13 +78,12 @@ namespace WpfApp1.MVVM.View
                         }
                     };
 
-                    // Créer un StackPanel pour contenir le contenu
+                  
                     var stackPanelLeft = new StackPanel
                     {
                         Orientation = Orientation.Vertical
                     };
 
-                    // Ajouter le nom du monstre
                     var nameTextBlock = new TextBlock
                     {
                         Text = monster.Name,
@@ -97,7 +96,7 @@ namespace WpfApp1.MVVM.View
                     button.Content = stackPanelLeft;
                     ImageStackPanel.Children.Add(button);
 
-                    // Section des sorts et actions dans le panneau de droite
+                   
                     var stackPanelRight = new StackPanel
                     {
                         Orientation = Orientation.Vertical,
@@ -135,7 +134,7 @@ namespace WpfApp1.MVVM.View
                         stackPanelRight.Children.Add(spellTextBlock);
                     }
 
-                    // Bouton violet unique
+                   
                     var playGameButton = new Button
                     {
                         Content = "PLAY GAME",

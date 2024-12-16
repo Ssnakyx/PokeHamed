@@ -48,7 +48,7 @@ namespace WpfApp1.MVVM.ViewModel
             using var context = new ExerciceMonsterContext(_connectionString);
             try
             {
-                // Récupérer les noms et URL d'images des monstres
+              
                 var monsters = context.Monster
                     .Select(m => new 
                     { 
@@ -56,7 +56,7 @@ namespace WpfApp1.MVVM.ViewModel
                         m.Name, 
                         m.Health, 
                         m.ImageUrl,
-                        Spells = m.Spell.Select( s => s.Id).ToList() // Récupérer les noms des sorts
+                        Spells = m.Spell.Select( s => s.Id).ToList()
 
                     })
                     .ToList();
@@ -67,42 +67,36 @@ namespace WpfApp1.MVVM.ViewModel
                     return null;
                 }
 
-                // Afficher les noms et URLs des images pour vérification (peut être retiré en production)
-                //foreach (var monster in monsters)
-                //{
-                //    MessageBox.Show($"Name: {monster.Name}, ImageURL: {monster.ImageUrl}");
-                //}
+             
 
-                // Retourner une liste de tuples contenant le nom et l'URL de l'image
                 return monsters.Select(m => (m.Id, m.Name, m.Health, m.ImageUrl, m.Spells)).ToList();
-                //return monsters.Select(m => (m.Name, m.Health, m.ImageUrl, m.Spells.Select(s => s.Damage).ToList())).ToList();
+           
 
             }
             catch (SqlException sqlEx)
             {
                 MessageBox.Show($"Erreur SQL lors de la récupération des données : {sqlEx.Message}");
-                throw; // Ré-élévation pour gestion en amont
+                throw; 
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur inattendue : {ex.Message}");
-                throw; // Ré-élévation pour gestion en amont
+                throw;
             }
         }
-        // Fonction pour obtenir un monstre aléatoire
+     
         public static Monster GetRandomMonster()
         {
-            var monsters = DisplayMonsterImages(); // Récupérer la liste des monstres
+            var monsters = DisplayMonsterImages(); 
             if (monsters == null || !monsters.Any())
             {
                 throw new InvalidOperationException("Aucun monstre disponible pour la sélection.");
             }
 
-            // Sélectionner un monstre au hasard
+            
             var random = new Random();
             var randomMonster = monsters[random.Next(monsters.Count)];
 
-            // Convertir le tuple en un objet Monster
             var monsterSpells = DataSpell.DisplaySpell()
                 .Where(s => randomMonster.Spells.Contains(s.Id))
                 .Select(s => new Spell
@@ -114,7 +108,7 @@ namespace WpfApp1.MVVM.ViewModel
                 })
                 .ToList();
 
-            // Retourner un objet Monster
+          
             return new Monster
             {
                 Id = randomMonster.Id,

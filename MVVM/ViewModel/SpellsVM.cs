@@ -64,24 +64,18 @@ namespace WpfApp1.MVVM.ViewModel
                     return null;
                 }
 
-                // Afficher les noms et URLs des images pour vérification (peut être retiré en production)
-                //foreach (var spell in spells)
-                //{
-                //    MessageBox.Show($"Name: {spell.Name}, Damage: {spell.Damage}");
-                //}
-
-                // Retourner une liste de tuples contenant le nom et l'URL de l'image
+           
                 return spells.Select(s => (s.Id, s.Name, s.Damage, s.Description, s.Monsters)).ToList();
             }
             catch (SqlException sqlEx)
             {
                 MessageBox.Show($"Erreur SQL lors de la récupération des données : {sqlEx.Message}");
-                throw; // Ré-élévation pour gestion en amont
+                throw;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur inattendue : {ex.Message}");
-                throw; // Ré-élévation pour gestion en amont
+                throw;
             }
         }
 

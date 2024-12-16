@@ -10,7 +10,7 @@ namespace WpfApp1.MVVM.View
     {
         private Monster playerMonster;
         private Monster opponentMonster;
-        private static int score = 0; // Variable statique pour conserver le score
+        private static int score = 0; 
 
         public FightView(Monster playerMonster, Monster opponentMonster)
         {
@@ -19,7 +19,7 @@ namespace WpfApp1.MVVM.View
             this.playerMonster = playerMonster;
             this.opponentMonster = opponentMonster;
 
-            // Initialiser les données du joueur
+           
             PlayerMonsterName.Text = playerMonster.Name;
             PlayerMonsterHealth.Text = $"Health: {playerMonster.Health}";
             PlayerMonsterImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(playerMonster.ImageUrl));
@@ -38,12 +38,12 @@ namespace WpfApp1.MVVM.View
                 PlayerMonsterSpells.Children.Add(button);
             }
 
-            // Initialiser les données de l'adversaire
+       
             OpponentMonsterName.Text = opponentMonster.Name;
             OpponentMonsterHealth.Text = $"Health: {opponentMonster.Health}";
             OpponentMonsterImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(opponentMonster.ImageUrl));
 
-            // Initialiser le score
+        
             ScoreLabel.Content = $"Score: {score}";
         }
 
@@ -52,7 +52,7 @@ namespace WpfApp1.MVVM.View
             var button = sender as Button;
             if (button != null && button.Tag is Spell spell)
             {
-                // Attaque du joueur
+            
                 opponentMonster.Health -= spell.Damage;
                 OpponentMonsterHealth.Text = $"Health: {Math.Max(0, opponentMonster.Health)}";
 
@@ -60,21 +60,21 @@ namespace WpfApp1.MVVM.View
 
                 if (opponentMonster.Health <= 0)
                 {
-                    // Mettre à jour le score
-                    score++;  // Incrémenter le score
+                  
+                    score++;  
 
-                    // Mettre à jour le Label du score
+                 
                     ScoreLabel.Content = $"Score: {score}";
 
                     OpponentMonsterHealth.Text = "Health: 0";
                     MessageBox.Show($"{opponentMonster.Name} fainted! You win!");
 
-                    // Terminer le combat
+                  
                     Close();
                 }
                 else
                 {
-                    // Contre-attaque de l'adversaire
+                  
                     OpponentAttack();
                 }
             }

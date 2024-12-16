@@ -14,7 +14,7 @@ namespace WpfApp1.MVVM.ViewModel
     public class MainWindowVM : BaseVM
     {
 
-        // Event => On User request to change ViewModel & view
+       
         static public Action<BaseVM> OnRequestVMChange;
 
         #region Commands
@@ -41,15 +41,13 @@ namespace WpfApp1.MVVM.ViewModel
 
         #endregion
 
-        // Constructor of the mainWindowVM
-        // Called on instanciate
+ 
         public MainWindowVM()
         {
-            // Subscribe to HandleRequestViewChange
-            // => Call the function when event is Invoke.
+    
             MainWindowVM.OnRequestVMChange += HandleRequestViewChange;
 
-            //Invoke the event with the newVM instancied
+         
             MainWindowVM.OnRequestVMChange?.Invoke(new MainViewVM());
 
         }
@@ -60,13 +58,13 @@ namespace WpfApp1.MVVM.ViewModel
         /// <param name="a_VMToChange"></param>
         public void HandleRequestViewChange(BaseVM a_VMToChange)
         {
-            //Notify currentVM will be hide
+          
             CurrentVM?.OnHideVM();
 
-            // Assign the new VM
+         
             CurrentVM = a_VMToChange;
 
-            //Notify currentVM will be shown
+        
             CurrentVM?.OnShowVM();
         }
 

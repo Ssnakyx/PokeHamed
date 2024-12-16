@@ -4,25 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
-        xmlns:VM ="clr-namespace:WpfApp1.MVVM.ViewModel"
-        xmlns:View ="clr-namespace:WpfApp1.MVVM.View"
+        xmlns:VM="clr-namespace:WpfApp1.MVVM.ViewModel"
+        xmlns:View="clr-namespace:WpfApp1.MVVM.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-<!--    <Grid>
-        Rectangle avec intérieur gris 
-        <Rectangle HorizontalAlignment="Center" Height="414" 
-                   Stroke="Black" VerticalAlignment="Center" Width="780" Fill="Gray"/>
-    </Grid> -->
+        Title="Pokédex" Height="400" Width="600" 
+        Background="#1E1E1E" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen">
+
     <Window.Resources>
-        <!-- Link VM & View  -->
+        <!-- Link VM & View -->
         <DataTemplate DataType="{x:Type VM:MainViewVM}">
             <View:MainWindow/>
         </DataTemplate>
-
-        <!-- <DataTemplate DataType="{x:Type VM:GameVM}">
-            <View:GameView/>
-        </DataTemplate> -->
     </Window.Resources>
+
+    <!-- Contenu principal -->
     <Grid>
         <ContentControl Content="{Binding CurrentVM}"/>
     </Grid>

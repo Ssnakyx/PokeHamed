@@ -19,7 +19,7 @@ namespace WpfApp1.MVVM.View
             var username = UsernameTextBox.Text;
             var password = PasswordBox.Password;
 
-            //string hashedPassword = PasswordHelper.HashPassword(password);
+         
             var user = DataLogin.GetUser(username, password);
             Window parentWindow = Window.GetWindow(this);
             GameView gameview = new GameView();
