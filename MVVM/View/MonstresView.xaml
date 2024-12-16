@@ -8,37 +8,42 @@
       d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <!-- Définition des colonnes : 1/2 pour les images, 1/2 pour l'espace vide -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+        <!-- Définition des colonnes pour séparer les images et les détails -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="Auto" />
+            <!-- GridSplitter -->
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Pokemon" 
-                   HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" />
-        <!-- Section gauche : ScrollViewer avec des images -->
-        <ScrollViewer Grid.Row="1" Grid.Column="0" VerticalScrollBarVisibility="Auto" Margin="30">
+        <!-- Titre -->
+        <TextBlock Grid.ColumnSpan="3" Text="Pokemon" 
+                   HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" 
+                   Foreground="DarkSlateBlue" Margin="10" />
+
+        <!-- Section gauche : Liste des Pokémon -->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Margin="10">
             <WrapPanel x:Name="ImageStackPanel" Orientation="Horizontal" HorizontalAlignment="Center" />
         </ScrollViewer>
 
-        <!-- Section droite : vide -->
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20" VerticalAlignment="Top">
-            
-                <!-- <TextBlock Text="Pokemon Details" FontSize="20" FontWeight="Bold" 
-                           HorizontalAlignment="Center" Margin="10" />
+        <!-- GridSplitter pour ajuster les colonnes -->
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="Gray" />
 
-                <Image x:Name="PokemonImage" Height="75" Margin="10" 
-                       HorizontalAlignment="Center" />
-
-                <TextBlock Text="Spells:" FontSize="14" FontWeight="Bold" 
-                           HorizontalAlignment="Center" Margin="20,10,20,10" /> -->
-                <StackPanel x:Name="RightPanelSpells" HorizontalAlignment="Center" Margin="5"/>
-            
-
-        </StackPanel>
+        <!-- Section droite : Détails du Pokémon sélectionné -->
+        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" Margin="10">
+            <StackPanel x:Name="RightPanelSpells" Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock x:Name="PokemonDetailsHeader" Text="Détails du Pokémon" 
+                           FontSize="18" FontWeight="Bold" Margin="10" />
+                <Image x:Name="PokemonImage" Height="150" Margin="10" />
+                <TextBlock x:Name="PokemonHealth" Text="HP: 100" 
+                           FontSize="16" Margin="10" Foreground="DarkSlateBlue" />
+                <TextBlock x:Name="PokemonSpellsHeader" Text="Sorts:" 
+                           FontSize="16" FontWeight="Bold" Margin="10" />
+                <!-- Conteneur pour les sorts -->
+                <StackPanel x:Name="SpellsList" Margin="10" />
+                <Button x:Name="PlayGameButton" Content="Play Game" 
+                        Margin="20" Width="120" Height="40" Background="DarkSlateBlue" Foreground="White" />
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
