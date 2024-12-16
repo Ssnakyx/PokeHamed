@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WpfApp1.MVVM.Model;
@@ -7,63 +8,102 @@ namespace WpfApp1.MVVM.View
 {
     public partial class FightView : Window
     {
-        private Monster _playerMonster;
-        private Monster _opponentMonster;
+        private Monster playerMonster;
+        private Monster opponentMonster;
+        private static int score = 0; // Variable statique pour conserver le score
 
         public FightView(Monster playerMonster, Monster opponentMonster)
         {
             InitializeComponent();
 
-            // Stocker les monstres
-            _playerMonster = playerMonster;
-            _opponentMonster = opponentMonster;
+            this.playerMonster = playerMonster;
+            this.opponentMonster = opponentMonster;
 
-            // Initialiser les données pour le monstre de gauche (joueur)
+            // Initialiser les données du joueur
             PlayerMonsterName.Text = playerMonster.Name;
             PlayerMonsterHealth.Text = $"Health: {playerMonster.Health}";
             PlayerMonsterImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(playerMonster.ImageUrl));
 
-            // Ajouter les sorts du joueur sous forme de boutons
-            if (playerMonster.Spell != null)
+            foreach (var spell in playerMonster.Spell)
             {
-                foreach (var spell in playerMonster.Spell)
+                var button = new Button
                 {
-                    var spellButton = new Button
-                    {
-                        Content = $"{spell.Name} - Damage: {spell.Damage}",
-                        Margin = new Thickness(5),
-                        Tag = spell // Attacher le sort au bouton via Tag
-                    };
-
-                    // Ajouter un événement pour gérer les clics
-                    spellButton.Click += OnSpellButtonClick;
-
-                    PlayerMonsterSpells.Children.Add(spellButton);
-                }
+                    Content = $"{spell.Name} - Damage: {spell.Damage}",
+                    Tag = spell,
+                    Margin = new Thickness(5),
+                    Padding = new Thickness(10),
+                    HorizontalAlignment = HorizontalAlignment.Center
+                };
+                button.Click += OnSpellButtonClick;
+                PlayerMonsterSpells.Children.Add(button);
             }
 
-            // Initialiser les données pour le monstre de droite (adversaire)
+            // Initialiser les données de l'adversaire
             OpponentMonsterName.Text = opponentMonster.Name;
             OpponentMonsterHealth.Text = $"Health: {opponentMonster.Health}";
             OpponentMonsterImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(opponentMonster.ImageUrl));
+
+            // Initialiser le score
+            ScoreLabel.Content = $"Score: {score}";
         }
 
         private void OnSpellButtonClick(object sender, RoutedEventArgs e)
         {
-            if (sender is Button spellButton && spellButton.Tag is Spell spell)
+            var button = sender as Button;
+            if (button != null && button.Tag is Spell spell)
             {
-                // Réduire les points de vie de l'adversaire
-                _opponentMonster.Health -= spell.Damage;
+                // Attaque du joueur
+                opponentMonster.Health -= spell.Damage;
+                OpponentMonsterHealth.Text = $"Health: {Math.Max(0, opponentMonster.Health)}";
 
-                // Vérifier si l'adversaire est KO
-                if (_opponentMonster.Health <= 0)
+                MessageBox.Show($"You used {spell.Name} and dealt {spell.Damage} damage!");
+
+                if (opponentMonster.Health <= 0)
                 {
-                    _opponentMonster.Health = 0; // Éviter les valeurs négatives
-                    MessageBox.Show($"{_playerMonster.Name} a vaincu {_opponentMonster.Name} !");
-                }
+                    // Mettre à jour le score
+                    score++;  // Incrémenter le score
 
-                // Mettre à jour l'affichage des points de vie
-                OpponentMonsterHealth.Text = $"Health: {_opponentMonster.Health}";
+                    // Mettre à jour le Label du score
+                    ScoreLabel.Content = $"Score: {score}";
+
+                    OpponentMonsterHealth.Text = "Health: 0";
+                    MessageBox.Show($"{opponentMonster.Name} fainted! You win!");
+
+                    // Terminer le combat
+                    Close();
+                }
+                else
+                {
+                    // Contre-attaque de l'adversaire
+                    OpponentAttack();
+                }
+            }
+        }
+
+        private void OpponentAttack()
+        {
+            var random = new Random();
+            var spell = opponentMonster.Spell.Count > 0
+                ? opponentMonster.Spell.ElementAt(random.Next(opponentMonster.Spell.Count))
+                : null;
+
+            if (spell != null)
+            {
+                playerMonster.Health -= spell.Damage;
+                PlayerMonsterHealth.Text = $"Health: {Math.Max(0, playerMonster.Health)}";
+
+                MessageBox.Show($"{opponentMonster.Name} used {spell.Name} and dealt {spell.Damage} damage!");
+
+                if (playerMonster.Health <= 0)
+                {
+                    PlayerMonsterHealth.Text = "Health: 0";
+                    MessageBox.Show("Your Pokémon fainted! Game over.");
+                    Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show($"{opponentMonster.Name} has no spells to attack.");
             }
         }
     }
