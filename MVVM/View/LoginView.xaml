@@ -41,10 +41,5 @@
         </StackPanel>
 
         <!-- Footer -->
-        <TextBlock Text="© 2024 Votre Application" 
-                   Grid.Row="2" Grid.Column="1"
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Bottom"
-                   FontSize="12" />
     </Grid>
 </UserControl>
