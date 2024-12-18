@@ -40,7 +40,7 @@ Bienvenue dans le projet de combats Pokémon, un jeu développé en **C#** qui s
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/pokemon-battle-csharp.git
+   git clone https://github.com/votre-utilisateur/pokemon-battle-csharp.git](https://github.com/Ssnakyx/PokeHamed.git
 
 2. Installer SQL SERVER :
      ```bash
